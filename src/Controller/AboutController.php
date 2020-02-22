@@ -9,12 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class homeController extends AbstractController
+class AboutController extends AbstractController
 {
 
-    public function home(Environment $twig)
+    public function about(Environment $twig)
     {
-        $content = $twig->render('accueil.html.twig');
+
+        $content = $twig->render('about.html.twig');
         return new Response($content);
 
     }
