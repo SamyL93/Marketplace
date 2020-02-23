@@ -9,3 +9,11 @@ contact:
 about:
     path: /about
     controller: App\Controller\AboutController::about
+
+inscription:
+    path: /inscription
+    controller: App\Controller\SecurityController::inscription
+
+connexion:
+    path: /about
+    controller: App\Controller\AboutController::about
