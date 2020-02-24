@@ -148,7 +148,10 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         // line 60
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inscription");
         echo "\">Register</a>
-                    <a href=\"#\" class=\"in\">Sign in</a>
+                    <a href=\"";
+        // line 61
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("connexion");
+        echo "\" class=\"in\">Sign in</a>
                 </div>
                 <nav class=\"main-menu mobile-menu\">
                     <ul>
@@ -446,7 +449,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     public function getDebugInfo()
     {
-        return array (  420 => 212,  402 => 107,  384 => 25,  365 => 23,  351 => 213,  349 => 212,  343 => 209,  339 => 208,  335 => 207,  331 => 206,  327 => 205,  323 => 204,  319 => 203,  315 => 202,  219 => 108,  217 => 107,  205 => 98,  196 => 92,  187 => 86,  172 => 74,  168 => 73,  157 => 65,  149 => 60,  141 => 55,  136 => 53,  132 => 52,  124 => 49,  99 => 26,  97 => 25,  92 => 23,  87 => 21,  83 => 20,  79 => 19,  75 => 18,  71 => 17,  67 => 16,  63 => 15,  47 => 1,);
+        return array (  423 => 212,  405 => 107,  387 => 25,  368 => 23,  354 => 213,  352 => 212,  346 => 209,  342 => 208,  338 => 207,  334 => 206,  330 => 205,  326 => 204,  322 => 203,  318 => 202,  222 => 108,  220 => 107,  208 => 98,  199 => 92,  190 => 86,  175 => 74,  171 => 73,  160 => 65,  153 => 61,  149 => 60,  141 => 55,  136 => 53,  132 => 52,  124 => 49,  99 => 26,  97 => 25,  92 => 23,  87 => 21,  83 => 20,  79 => 19,  75 => 18,  71 => 17,  67 => 16,  63 => 15,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -511,7 +514,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
                 </div>
                 <div class=\"user-access\">
                     <a href=\"{{ path('inscription')}}\">Register</a>
-                    <a href=\"#\" class=\"in\">Sign in</a>
+                    <a href=\"{{ path('connexion')}}\" class=\"in\">Sign in</a>
                 </div>
                 <nav class=\"main-menu mobile-menu\">
                     <ul>

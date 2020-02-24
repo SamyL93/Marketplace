@@ -2,6 +2,7 @@
 
 {% block body %}
     <h3>Page d'inscription </h3>
+
     {{ form_start(form) }}
     {{form_row(form.username,{'label':'Your name : ','attr':{'placeholder':'John Snow'}})}}
     {{form_row(form.mail,{'label':'Mail adress : ','attr':{'placeholder':'john.snow@example.com'}})}}

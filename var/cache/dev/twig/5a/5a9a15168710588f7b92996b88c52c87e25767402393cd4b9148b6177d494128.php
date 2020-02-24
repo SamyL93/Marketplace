@@ -66,33 +66,34 @@ class __TwigTemplate_1e408b3b2dea760d1ef2c11ac8e4a974c7e372943be7e1427e7761b2295
 
         // line 4
         echo "    <h3>Page d'inscription </h3>
-    ";
-        // line 5
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 5, $this->source); })()), 'form_start');
-        echo "
+
     ";
         // line 6
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), "username", [], "any", false, false, false, 6), 'row', ["label" => "Your name : ", "attr" => ["placeholder" => "John Snow"]]);
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), 'form_start');
         echo "
     ";
         // line 7
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), "mail", [], "any", false, false, false, 7), 'row', ["label" => "Mail adress : ", "attr" => ["placeholder" => "john.snow@example.com"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), "username", [], "any", false, false, false, 7), 'row', ["label" => "Your name : ", "attr" => ["placeholder" => "John Snow"]]);
         echo "
     ";
         // line 8
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), "password", [], "any", false, false, false, 8), 'row', ["label" => "Choose password : ", "attr" => ["placeholder" => "********"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), "mail", [], "any", false, false, false, 8), 'row', ["label" => "Mail adress : ", "attr" => ["placeholder" => "john.snow@example.com"]]);
         echo "
     ";
         // line 9
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "confirm_password", [], "any", false, false, false, 9), 'row', ["label" => "Confirm password : ", "attr" => ["placeholder" => "********"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "password", [], "any", false, false, false, 9), 'row', ["label" => "Choose password : ", "attr" => ["placeholder" => "********"]]);
+        echo "
+    ";
+        // line 10
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "confirm_password", [], "any", false, false, false, 10), 'row', ["label" => "Confirm password : ", "attr" => ["placeholder" => "********"]]);
         echo "
 
 
     <button type=\"submit\" class=\"btn btn-success\">Inscription !</button>
 
     ";
-        // line 14
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form_end');
+        // line 15
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -115,7 +116,7 @@ class __TwigTemplate_1e408b3b2dea760d1ef2c11ac8e4a974c7e372943be7e1427e7761b2295
 
     public function getDebugInfo()
     {
-        return array (  95 => 14,  87 => 9,  83 => 8,  79 => 7,  75 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  96 => 15,  88 => 10,  84 => 9,  80 => 8,  76 => 7,  72 => 6,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -124,6 +125,7 @@ class __TwigTemplate_1e408b3b2dea760d1ef2c11ac8e4a974c7e372943be7e1427e7761b2295
 
 {% block body %}
     <h3>Page d'inscription </h3>
+
     {{ form_start(form) }}
     {{form_row(form.username,{'label':'Your name : ','attr':{'placeholder':'John Snow'}})}}
     {{form_row(form.mail,{'label':'Mail adress : ','attr':{'placeholder':'john.snow@example.com'}})}}
