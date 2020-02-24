@@ -17,3 +17,7 @@ inscription:
 connexion:
     path: /connexion
     controller: App\Controller\SecurityController::connexion
+
+logout :
+    path: /logout
+    controller: App\Controller\SecurityController::logout

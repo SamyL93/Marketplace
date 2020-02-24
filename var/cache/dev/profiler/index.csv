@@ -618,3 +618,16 @@ dd1f59,::1,GET,http://localhost/marketplace/public/index.php/inscription,1582550
 184848,::1,GET,http://localhost/marketplace/public/index.php/categories.html,1582550605,d057f3,404
 d057f3,::1,GET,http://localhost/marketplace/public/index.php/categories.html,1582550605,,404
 >>>>>>> 82b827ade330e5518106433eeb59dafd182ba7ed
+be9786,::1,GET,http://localhost/marketplace/public/index.php/logout,1582552835,,302
+a5e502,::1,GET,http://localhost/marketplace/public/index.php/,1582552836,,200
+901110,::1,GET,http://localhost/marketplace/public/index.php/,1582553228,c7553f,500
+c7553f,::1,GET,http://localhost/marketplace/public/index.php/,1582553228,,500
+ae921b,::1,GET,http://localhost/marketplace/public/index.php/,1582553387,,200
+bfa971,::1,GET,http://localhost/marketplace/public/index.php/,1582553461,,200
+1882b2,::1,GET,http://localhost/marketplace/public/index.php/,1582553568,,200
+1f79f1,::1,GET,http://localhost/marketplace/public/index.php/inscription,1582553574,,200
+cf0103,::1,GET,http://localhost/marketplace/public/index.php/connexion,1582553577,,200
+365cbf,::1,POST,http://localhost/marketplace/public/index.php/connexion,1582553585,,302
+4771dd,::1,GET,http://localhost/marketplace/public/index.php/,1582553586,,200
+2db2fa,::1,GET,http://localhost/marketplace/public/index.php/logout,1582553591,,302
+e506e6,::1,GET,http://localhost/marketplace/public/index.php/,1582553592,,200
