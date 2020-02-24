@@ -520,3 +520,8 @@ f79242,::1,GET,http://localhost/marketplace/public/index.php/,1582534082,,200
 5a9a11,::1,GET,http://localhost/marketplace/public/index.php/inscription,1582534088,,200
 bc7071,::1,GET,http://localhost/marketplace/public/index.php/,1582534728,,200
 ae1e19,::1,GET,http://localhost/marketplace/public/index.php/inscription,1582534821,,200
+14218a,::1,GET,http://localhost:8888/Marketplace/public/,1582540301,,200
+4acab2,::1,GET,http://localhost:8888/Marketplace/public/index.php/,1582540311,,200
+9e24a7,172.16.103.37,GET,http://172.16.101.176:8000/,1582540479,,200
+4a3a9e,::1,GET,http://localhost:8888/Marketplace/public/index.php/about,1582541456,,200
+f46bfb,::1,GET,http://localhost:8888/Marketplace/public/index.php/,1582541773,,200
