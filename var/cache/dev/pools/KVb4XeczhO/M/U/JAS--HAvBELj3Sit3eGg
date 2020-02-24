@@ -8,6 +8,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     null,
     [
         'stdClass' => [
+            'length' => [
+                64,
+            ],
             'minMessage' => [
                 1 => 'your password must be at least 8 characters',
             ],
