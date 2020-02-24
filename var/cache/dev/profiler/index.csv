@@ -618,3 +618,5 @@ dd1f59,::1,GET,http://localhost/marketplace/public/index.php/inscription,1582550
 184848,::1,GET,http://localhost/marketplace/public/index.php/categories.html,1582550605,d057f3,404
 d057f3,::1,GET,http://localhost/marketplace/public/index.php/categories.html,1582550605,,404
 >>>>>>> 82b827ade330e5518106433eeb59dafd182ba7ed
+1d0cc0,127.0.0.1,GET,http://127.0.0.1:8000/inscription,1582551708,,200
+dabe08,127.0.0.1,GET,http://127.0.0.1:8000/contact,1582551710,,200
