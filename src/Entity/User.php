@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 //table user
 class User implements UserInterface
-{
+{//
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
