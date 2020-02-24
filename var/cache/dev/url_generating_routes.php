@@ -19,5 +19,5 @@ return [
     'contact' => [[], ['_controller' => 'App\\Controller\\ContactController::contact'], [], [['text', '/contact']], [], []],
     'about' => [[], ['_controller' => 'App\\Controller\\AboutController::about'], [], [['text', '/about']], [], []],
     'inscription' => [[], ['_controller' => 'App\\Controller\\SecurityController::inscription'], [], [['text', '/inscription']], [], []],
-    'connexion' => [[], ['_controller' => 'App\\Controller\\AboutController::about'], [], [['text', '/about']], [], []],
+    'connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::connexion'], [], [['text', '/connexion']], [], []],
 ];
