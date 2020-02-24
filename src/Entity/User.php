@@ -31,7 +31,7 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=64)
      * @Assert\Length(min="8",minMessage="your password must be at least 8 characters")
      */
     private $password;
@@ -95,8 +95,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
-    }
+        return array('ROLE_USER');    }
 
     /**
      * @inheritDoc

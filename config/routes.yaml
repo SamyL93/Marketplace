@@ -15,5 +15,9 @@ inscription:
     controller: App\Controller\SecurityController::inscription
 
 connexion:
-    path: /about
-    controller: App\Controller\AboutController::about
+    path: /connexion
+    controller: App\Controller\SecurityController::connexion
+
+logout :
+    path: /logout
+    controller: App\Controller\SecurityController::logout
