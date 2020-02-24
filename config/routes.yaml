@@ -17,3 +17,4 @@ inscription:
 connexion:
     path: /connexion
     controller: App\Controller\SecurityController::connexion
+
