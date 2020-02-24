@@ -46,6 +46,21 @@ class User implements UserInterface
      */
     private $mail;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $date_naissance;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_inscription;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $date_n;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,4 +128,6 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+
 }
