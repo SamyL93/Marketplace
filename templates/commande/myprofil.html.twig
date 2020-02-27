@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+ {%  block body %}
+
+     <section class="page-add">
+         <div class="container">
+             <div class="row">
+                 <div class="page-breadcrumb">
+                     <h2>Votre Profil</h2>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+     <div class="contact-section">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-6">
+
+                     <h3><br /><br />Informations personnelles</h3>
+                     <h6><br /> {{ 'Votre nom : ' ~ app.user.username }}</h6>
+                     <h6><br /> {{ 'Votre adresse mail : ' ~ app.user.mail }}</h6>
+                     <h3><br /><br />Vos commandes</h3>
+                     <h6><br />Blablabla</h6>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+ {% endblock %}
