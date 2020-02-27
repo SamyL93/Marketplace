@@ -21,3 +21,10 @@ connexion:
 logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
+
+myprofil:
+    path: /myprofil
+    controller: App\Controller\CommandeController::myprofil
+
+
+

@@ -14,13 +14,13 @@ class InfoController extends AbstractController
 
     public function about(Environment $twig)
     {
-        $content = $twig->render('about.html.twig');
+        $content = $twig->render('infos/about.html.twig');
         return new Response($content);
     }
 
     public function contact(Environment $twig)
     {
-        $content = $twig->render('contact.html.twig');
+        $content = $twig->render('infos/contact.html.twig');
         return new Response($content);
     }
 }
