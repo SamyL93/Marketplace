@@ -29,7 +29,7 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $user->setPassword($hash);
         $manager->persist($user);
         $manager->flush();
-        return $this->redirectToRoute('connexion ');
+        return $this->redirectToRoute('connexion');
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()
