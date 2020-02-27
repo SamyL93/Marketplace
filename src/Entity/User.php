@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     message="This email is already used"
  * )
  */
+//table user
 class User implements UserInterface
 {
     /**
