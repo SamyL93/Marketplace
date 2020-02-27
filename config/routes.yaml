@@ -4,11 +4,11 @@ home:
 
 contact:
     path: /contact
-    controller: App\Controller\ContactController::contact
+    controller: App\Controller\InfoController::contact
 
 about:
     path: /about
-    controller: App\Controller\AboutController::about
+    controller: App\Controller\InfoController::about
 
 inscription:
     path: /inscription
