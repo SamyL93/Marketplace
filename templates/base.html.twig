@@ -56,9 +56,14 @@
                         <span>2</span>
                     </a>
                 </div>
+
                 <div class="user-access">
+                    {% if not app.user %}
                     <a href="{{ path('inscription')}}">Register</a>
                     <a href="{{ path('connexion')}}" class="in">Sign in</a>
+                    {% else %}
+                    <a href="{{ path('logout')}}" class="in">Logout</a>
+                    {% endif %}
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>

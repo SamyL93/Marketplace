@@ -41,4 +41,8 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         return $this->render('security/connexion.html.twig');
     }
 
+    public function logout ()
+    {
+
+    }
 }
