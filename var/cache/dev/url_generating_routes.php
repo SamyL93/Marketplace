@@ -20,4 +20,5 @@ return [
     'about' => [[], ['_controller' => 'App\\Controller\\AboutController::about'], [], [['text', '/about']], [], []],
     'inscription' => [[], ['_controller' => 'App\\Controller\\SecurityController::inscription'], [], [['text', '/inscription']], [], []],
     'connexion' => [[], ['_controller' => 'App\\Controller\\AboutController::about'], [], [['text', '/about']], [], []],
+    'categorie' => [[], ['_controller' => 'App\\Controller\\ProductController::categorie'], [], [['text', '/categorie']], [], []],
 ];

@@ -20,6 +20,7 @@ return [
             [['_route' => 'connexion', '_controller' => 'App\\Controller\\AboutController::about'], null, null, null, false, false, null],
         ],
         '/inscription' => [[['_route' => 'inscription', '_controller' => 'App\\Controller\\SecurityController::inscription'], null, null, null, false, false, null]],
+        '/categorie' => [[['_route' => 'categorie', '_controller' => 'App\\Controller\\ProductController::categorie'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

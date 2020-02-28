@@ -17,3 +17,7 @@ inscription:
 connexion:
     path: /about
     controller: App\Controller\AboutController::about
+
+categorie:
+    path: /categorie
+    controller: App\Controller\ProductController::categorie
