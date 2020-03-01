@@ -1,23 +1,33 @@
+
 home:
     path: /
     controller: App\Controller\homeController::home
 
 contact:
     path: /contact
-    controller: App\Controller\ContactController::contact
+    controller: App\Controller\InfoController::contact
 
 about:
     path: /about
-    controller: App\Controller\AboutController::about
+    controller: App\Controller\InfoController::about
 
 inscription:
     path: /inscription
     controller: App\Controller\SecurityController::inscription
 
 connexion:
-    path: /about
-    controller: App\Controller\AboutController::about
+    path: /connexion
+    controller: App\Controller\SecurityController::connexion
 
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+myprofil:
+    path: /myprofil
+    controller: App\Controller\CommandeController::myprofil
+    
 categorie:
     path: /categorie
     controller: App\Controller\ProductController::categorie
+
