@@ -22,6 +22,17 @@ class AchatDetaille
      */
     private $id_achat_fk;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Produit", inversedBy="achatDetailles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_produit_fk;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $montant;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +46,30 @@ class AchatDetaille
     public function setIdAchatFk(?Achat $id_achat_fk): self
     {
         $this->id_achat_fk = $id_achat_fk;
+
+        return $this;
+    }
+
+    public function getIdProduitFk(): ?Produit
+    {
+        return $this->id_produit_fk;
+    }
+
+    public function setIdProduitFk(?Produit $id_produit_fk): self
+    {
+        $this->id_produit_fk = $id_produit_fk;
+
+        return $this;
+    }
+
+    public function getMontant(): ?int
+    {
+        return $this->montant;
+    }
+
+    public function setMontant(int $montant): self
+    {
+        $this->montant = $montant;
 
         return $this;
     }
