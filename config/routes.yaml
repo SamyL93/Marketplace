@@ -31,3 +31,10 @@ categorie:
     path: /categorie
     controller: App\Controller\ProductController::categorie
 
+lister:
+    path: /lister
+    controller: App\Controller\ProductController::produits
+
+
+
+
