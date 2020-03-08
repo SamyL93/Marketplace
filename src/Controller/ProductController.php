@@ -16,9 +16,12 @@ class ProductController extends AbstractController
         return new Response($content);
     }
 
-    public function product(Environment $twig, $cat)
+
+    public function produits (Environment $twig)
     {
-        $content = $twig->render('product/'.$cat.'/.html.twig');
+
+        $content = $twig->render('product/produits.html.twig');
         return new Response($content);
     }
 }
+
