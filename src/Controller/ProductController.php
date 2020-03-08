@@ -16,6 +16,7 @@ class ProductController extends AbstractController
         return new Response($content);
     }
 
+
     public function produits (Environment $twig)
     {
 
@@ -23,4 +24,3 @@ class ProductController extends AbstractController
         return new Response($content);
     }
 }
-
