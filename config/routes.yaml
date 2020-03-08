@@ -31,3 +31,6 @@ categorie:
     path: /categorie
     controller: App\Controller\ProductController::categorie
 
+bag:
+    path: /bag
+    controller: App\Controller\BagController::bag

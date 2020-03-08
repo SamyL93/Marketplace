@@ -23,7 +23,7 @@ class AchatDetaille
     private $id_achat_fk;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Produit", inversedBy="achatDetailles")
+     * @ORM\ManyToOne(targetEntity="Product.php", inversedBy="achatDetailles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_produit_fk;
@@ -50,12 +50,12 @@ class AchatDetaille
         return $this;
     }
 
-    public function getIdProduitFk(): ?Produit
+    public function getIdProduitFk(): ?Product
     {
         return $this->id_produit_fk;
     }
 
-    public function setIdProduitFk(?Produit $id_produit_fk): self
+    public function setIdProduitFk(?Product $id_produit_fk): self
     {
         $this->id_produit_fk = $id_produit_fk;
 

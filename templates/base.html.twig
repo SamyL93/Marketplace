@@ -52,7 +52,7 @@
                     {% if app.user %}
                         {{ 'Bonjour ' ~ app.user.username }}
                     {% endif %}
-                    <a href="#"> <img src="{{ asset('img/icons/bag.png') }}" alt="">
+                    <a href="{{ path('bag') }}"> <img src="{{ asset('img/icons/bag.png') }}" alt="">
                         <span>2</span>
                     </a>
                 </div>

@@ -25,7 +25,7 @@ class Categorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="categorie_fk")
+     * @ORM\OneToMany(targetEntity="Product.php", mappedBy="categorie_fk")
      */
     private $produits;
 
@@ -52,14 +52,14 @@ class Categorie
     }
 
     /**
-     * @return Collection|Produit[]
+     * @return Collection|Product[]
      */
     public function getProduits(): Collection
     {
         return $this->produits;
     }
 
-    public function addProduit(Produit $produit): self
+    public function addProduit(Product $produit): self
     {
         if (!$this->produits->contains($produit)) {
             $this->produits[] = $produit;
@@ -69,7 +69,7 @@ class Categorie
         return $this;
     }
 
-    public function removeProduit(Produit $produit): self
+    public function removeProduit(Product $produit): self
     {
         if ($this->produits->contains($produit)) {
             $this->produits->removeElement($produit);
