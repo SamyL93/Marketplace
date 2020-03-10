@@ -34,3 +34,12 @@ categorie:
 bag:
     path: /bag
     controller: App\Controller\BagController::bag
+
+lister:
+    path: /lister
+    controller: App\Controller\ProductController::liste_produit
+
+
+
+
+
