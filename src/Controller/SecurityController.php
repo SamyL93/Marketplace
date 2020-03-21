@@ -26,6 +26,7 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $user->setPassword($hash);
         $manager->persist($user);
         $manager->flush();
+        $this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()
