@@ -2,16 +2,15 @@
 
 
 namespace App\Controller;
-
-
 use App\Repository\ProduitRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Twig\Environment;
 
-class BagController
+class BagController extends AbstractController
 {
     public function add ($id, SessionInterface $session) {
         $panier = $session->get('panier',[]);
@@ -24,6 +23,7 @@ class BagController
 
         }
         $session->set('panier',$panier);
+        return $this->redirectToRoute("lister");
     }
 
     public function bag(Environment $twig, SessionInterface $session, ProduitRepository $productRepository)
@@ -50,11 +50,10 @@ class BagController
 
     public function remove ($id, SessionInterface $session){
     $panier = $session->get('panier',[]);
-    if (!empty($panier[$id])){
+    if (!empty($panier[$id])) {
         unset($panier[$id]);
-        $session->get('panier',$panier);
-
     }
-return $this->redirect(test);
+        $session->set('panier',$panier);
+return $this->redirectToRoute("bag");
     }
 }
