@@ -35,10 +35,17 @@ bag:
     path: /bag
     controller: App\Controller\BagController::bag
 
+bag_add:
+    path: /bag/{id}
+    controller: App\Controller\BagController::add
+
+bag_remove:
+    path: /bag/remove/{id}
+    controller: App\Controller\BagController::remove
+
 lister:
     path: /lister
     controller: App\Controller\ProductController::liste_produit
-
 
 
 

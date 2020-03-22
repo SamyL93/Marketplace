@@ -4,8 +4,11 @@
 namespace App\Controller;
 
 
+use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 use Twig\Environment;
 
 class BagController
@@ -21,12 +24,37 @@ class BagController
 
         }
         $session->set('panier',$panier);
-        dd($session->get('panier'));
     }
 
-    public function bag(Environment $twig)
+    public function bag(Environment $twig, SessionInterface $session, ProduitRepository $productRepository)
     {
-        $content = $twig->render('bag.html.twig');
+        $panier = $session->get('panier',[]);
+        $panierWithData =[];
+        foreach ($panier as $id=> $quantity) {
+            $panierWithData[] = [
+                'product'=> $productRepository->find($id),
+                'quantity'=> $quantity
+            ];
+        }
+        $total=0;
+        foreach ($panierWithData as $item){
+            $totalItem = $item['product']->getPrice() *$item['quantity'];
+            $total += $totalItem;
+        }
+        $content = $twig->render('bag.html.twig',[
+            'items'=>$panierWithData,
+            'total'=>$total
+        ]);
         return new Response($content);
+    }
+
+    public function remove ($id, SessionInterface $session){
+    $panier = $session->get('panier',[]);
+    if (!empty($panier[$id])){
+        unset($panier[$id]);
+        $session->get('panier',$panier);
+
+    }
+return $this->redirect(test);
     }
 }

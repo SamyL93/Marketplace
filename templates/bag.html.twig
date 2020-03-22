@@ -1,1 +1,41 @@
 {% extends 'base.html.twig' %}
+{% block body %}
+    {% if items | length > 0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.product.title }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{item.product.price * item.quantity }}</td>
+                <td>
+                    <a href="{{ path('bag_remove',{'id' : item.product.id}) }}" class="btn btn-danger btn-sm"></a>
+                    <i class="fas fa-trash"></i>
+
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+            <tfoot>
+            <tr>
+                <td colspan="3">Total : </td>
+                <td>{{ total }}</td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p>Your cart is empty</p>
+    {% endif %}
+{% endblock  %}
