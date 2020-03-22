@@ -73,7 +73,7 @@
         smartSpeed: 1200,
         autoplayHoverPause: true,
         mouseDrag: false,
-        autoplay: false,
+        autoplay: true,
     });
 
     /*------------------

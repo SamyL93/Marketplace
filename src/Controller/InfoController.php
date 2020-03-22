@@ -17,9 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 use App\Entity\Contact;
 
-class ContactController extends AbstractController
+class InfoController extends AbstractController
 {
 
+<<<<<<< HEAD:src/Controller/ContactController.php
     public function contact(Environment $twig, Request $request, \Swift_Mailer $mailer)
     {
         $contact = new Contact();
@@ -53,7 +54,18 @@ class ContactController extends AbstractController
         return $this->render('contact.html.twig', [
             'form' => $form->createView()
         ]);
+=======
+    public function about(Environment $twig)
+    {
+        $content = $twig->render('infos/about.html.twig');
+        return new Response($content);
+    }
+>>>>>>> f425b9abfff5b7280b4daa9ac89cca547892fbd7:src/Controller/InfoController.php
 
+    public function contact(Environment $twig)
+    {
+        $content = $twig->render('infos/contact.html.twig');
+        return new Response($content);
     }
 }
 
