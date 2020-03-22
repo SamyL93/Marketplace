@@ -8,7 +8,7 @@ use Swift_Mailer;
 use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MailContactController extends AbstractController
+class MailerContactController extends AbstractController
 {
 
     public function contactUs($envoyeur, $contenu): void

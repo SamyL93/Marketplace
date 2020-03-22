@@ -8,7 +8,7 @@ use Swift_Mailer;
 use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MailInscriptionController extends AbstractController
+class MailerInscriptionController extends AbstractController
 {
     public function mail_inscription($destination): void
     {
