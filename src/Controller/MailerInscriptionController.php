@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MailerInscriptionController extends AbstractController
 {
+
+
     public function mail_inscription($destination): void
     {
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587))
@@ -30,7 +32,7 @@ class MailerInscriptionController extends AbstractController
             )
         ;
 
-        $mailer->send($message);
+        //$mailer->send($message);
 
         //return $this->render(...);
     }
