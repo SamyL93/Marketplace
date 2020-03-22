@@ -15,10 +15,17 @@ use Twig\Environment;
 use App\Entity\User;
 use App\Form\InscriptionType;
 
+
 class SecurityController extends AbstractController
 {
-public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
-{
+
+
+
+
+public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer) {
+
+
+
     $user = new User();
 
     $form = $this->createForm(InscriptionType::class, $user);
@@ -29,7 +36,25 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $user->setPassword($hash);
         $manager->persist($user);
         $manager->flush();
+
+        $message = (new \Swift_Message('Inscription confirmation'))
+            ->setFrom('marketplace12344@gmail.com')
+            ->setTo($user->getMail())
+            ->setBody(
+                $this->renderView(
+                // templates/mail/mail_inscription.html.twig
+                    'mail/mail_inscription.html.twig'
+                ),
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
+
+        //$this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
+
         return $this->redirectToRoute('connexion');
+
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()

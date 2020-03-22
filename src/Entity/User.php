@@ -51,17 +51,6 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-
-    private $date_naissance;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $date_inscription;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Achat", mappedBy="id_user_fk")
      */
     private $achats;
@@ -140,29 +129,6 @@ class User implements UserInterface
 
 
 
-    public function getDateNaissance(): ?\DateTimeInterface
-    {
-        return $this->date_naissance;
-    }
-
-    public function setDateNaissance(?\DateTimeInterface $date_naissance): self
-    {
-        $this->date_naissance = $date_naissance;
-
-        return $this;
-    }
-
-    public function getDateInscription(): ?\DateTimeImmutable
-    {
-        return $this->date_inscription;
-    }
-
-    public function setDateNInscription(\DateTimeImmutable $date_inscription): self
-    {
-        $this->date_inscription = $date_inscription;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Achat[]
