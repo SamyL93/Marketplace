@@ -44,7 +44,7 @@ bag_remove:
     controller: App\Controller\BagController::remove
 
 lister:
-    path: /lister
+    path: /lister/{id}
     controller: App\Controller\ProductController::liste_produit
 
 

@@ -23,7 +23,8 @@ class BagController extends AbstractController
 
         }
         $session->set('panier',$panier);
-        return $this->redirectToRoute("lister");
+
+        return $this->redirectToRoute("categorie");
     }
 
     public function bag(Environment $twig, SessionInterface $session, ProduitRepository $productRepository)
@@ -54,6 +55,6 @@ class BagController extends AbstractController
         unset($panier[$id]);
     }
         $session->set('panier',$panier);
-return $this->redirectToRoute("bag");
+        return $this->redirectToRoute("bag");
     }
 }

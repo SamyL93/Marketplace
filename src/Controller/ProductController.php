@@ -19,11 +19,41 @@ class ProductController extends AbstractController
     }
 
 
-    public function liste_produit(Environment $twig,ProduitRepository $produitRepository)
+    public function liste_produit(Environment $twig, ProduitRepository $produitRepository, $id)
     {
+        switch ($id) {
+            case 'fashion':
+                {
+                    return $this->render('product/articles.html.twig', [
+                        'products' => $produitRepository->findBy((array('categorie' => 'Fashion')))
+                    ]);
+                }
+                break;
 
-        return $this->render('product/articles.html.twig', [
-            'products' => $produitRepository->findAll()
-        ]);
+            case 'home':
+                {
+                    return $this->render('product/articles.html.twig', [
+                        'products' => $produitRepository->findBy((array('categorie' => 'Home')))
+                    ]);
+                }
+                break;
+
+            case 'books':
+                {
+                    return $this->render('product/articles.html.twig', [
+                        'products' => $produitRepository->findBy((array('categorie' => 'Books')))
+                    ]);
+
+                }
+                break;
+
+            case 'high-tech':
+                {
+                    return $this->render('product/articles.html.twig', [
+                        'products' => $produitRepository->findBy((array('categorie' => 'High-tech')))
+                    ]);
+                }
+        }
+
     }
 }
