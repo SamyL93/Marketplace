@@ -19,7 +19,7 @@
         $("#preloder").delay(200).fadeOut("slow");
 
         /*------------------
-		    Product filter
+		    Produit filter
 	    --------------------*/
         if ($('#product-list').length > 0) {
             var containerEl = document.querySelector('#product-list');
