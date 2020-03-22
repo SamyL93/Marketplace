@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        <section class="page-add">
+            <div class="container">
+                <div class="row">
+                    <div class="page-breadcrumb">
+                        <h2>For Professionals</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{ form_start(form) }}
+        <div class="contact-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="product-slider owl-carousel">
+                            <div class="product-img">
+                                <figure>
+                                    <img src="../../public/img/product/product-1.jpg" alt="">
+                                    <div class="p-status">new</div>
+                                </figure>
+                            </div>
+                            <div class="product-img">
+                                <figure>
+                                    <img src="../../public/img/product/product-1.jpg" alt="">
+                                    <div class="p-status">new</div>
+                                </figure>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            {{form_row(form.username,{'label':'Your Company :','attr':{'placeholder':'Company'}})}}
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            {{form_row(form.mail,{'label':'Your professional email :','attr':{'placeholder':'john.snow@company.com'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_row(form.password,{'label':'Choose password :','attr':{'placeholder':'********'}})}}
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            {{form_row(form.confirm_password,{'label':'Confirm password :','attr':{'placeholder':'********'}})}}
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-outline-dark">Submit</button>
+                    </div>
+                    <p>Already registered ?</p>
+                    <div class="col-md-6 text-center">
+                        <button type="button" class="btn btn-secondary">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+
+
+        {{ form_end(form) }}
+    {% endblock %}
