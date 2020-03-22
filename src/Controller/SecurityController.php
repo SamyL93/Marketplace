@@ -14,19 +14,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Twig\Environment;
 use App\Entity\User;
 use App\Form\InscriptionType;
-use App\Controller\MailerInscriptionController;
+
 
 class SecurityController extends AbstractController
 {
 
-    /*private $mailer;
 
-    public function __construct(MailerInscriptionController $mailer)
-    {
-        $this->mailer = $mailer;
-    }*/
 
-public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
+public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer) {
     $user = new User();
     $form = $this->createForm(InscriptionType::class, $user);
     $form->handleRequest($request);
@@ -35,7 +30,19 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $user->setPassword($hash);
         $manager->persist($user);
         $manager->flush();
-        //$this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
+        $message = (new \Swift_Message('Inscription confirmation'))
+            ->setFrom('marketplace12344@gmail.com')
+            ->setTo($user->getMail())
+            ->setBody(
+                $this->renderView(
+                // templates/mail/mail_inscription.html.twig
+                    'mail/mail_inscription.html.twig'
+                ),
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()

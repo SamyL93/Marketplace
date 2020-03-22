@@ -24,10 +24,11 @@
                         <div class="container">
                                 <div class="row">
                                         <div class="col-lg-8">
-                                                <form action="#" class="contact-form">
+                                                {{ form(form) }}
+                                               <!-- {# {{ form_start(form) }}
                                                         <div class="row">
                                                                 <div class="col-lg-6">
-                                                                        <input type="text" placeholder="First Name">
+                                                                        {{form_row(form.name,{'label':'Your name : ','attr':{'placeholder':'John'}})}}
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                         <input type="text" placeholder="Last Name">
@@ -41,7 +42,7 @@
                                                                         <button type="submit">Send message</button>
                                                                 </div>
                                                         </div>
-                                                </form>
+                                                {{ form_end(form) }}#}-->
                                         </div>
                                         <div class="col-lg-3 offset-lg-1">
                                                 <div class="contact-widget">
