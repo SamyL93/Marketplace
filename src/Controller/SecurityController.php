@@ -26,9 +26,12 @@ class SecurityController extends AbstractController
         $this->mailer = $mailer;
     }*/
 
-public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
+public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+{
     $user = new User();
+
     $form = $this->createForm(InscriptionType::class, $user);
+
     $form->handleRequest($request);
     if($form->isSubmitted() && $form->isValid()){
         $hash=$encoder->encodePassword($user,$user->getPassword());
@@ -36,9 +39,21 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $manager->persist($user);
         $manager->flush();
         //$this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
+
+        return $this->redirectToRoute('connexion');
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()
     ]);
 }
+
+    public function connexion ()
+    {
+        return $this->render('security/connexion.html.twig');
+    }
+
+    public function logout ()
+    {
+
+    }
 }

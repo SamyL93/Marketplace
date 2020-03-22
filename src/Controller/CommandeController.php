@@ -9,13 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class ContactController extends AbstractController
+class CommandeController extends AbstractController
 {
 
-    public function contact(Environment $twig)
+    public function myprofil(Environment $twig)
     {
-
-        $content = $twig->render('contact.html.twig');
+        $content = $twig->render('commande/myprofil.html.twig');
         return new Response($content);
 
     }
