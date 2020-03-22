@@ -21,12 +21,11 @@ class SecurityController extends AbstractController
 
 
 
-<<<<<<< HEAD
+
 public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer) {
-=======
-public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
-{
->>>>>>> f425b9abfff5b7280b4daa9ac89cca547892fbd7
+
+
+
     $user = new User();
 
     $form = $this->createForm(InscriptionType::class, $user);
@@ -37,7 +36,7 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         $user->setPassword($hash);
         $manager->persist($user);
         $manager->flush();
-<<<<<<< HEAD
+
         $message = (new \Swift_Message('Inscription confirmation'))
             ->setFrom('marketplace12344@gmail.com')
             ->setTo($user->getMail())
@@ -51,11 +50,11 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
         ;
 
         $mailer->send($message);
-=======
+
         //$this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
 
         return $this->redirectToRoute('connexion');
->>>>>>> f425b9abfff5b7280b4daa9ac89cca547892fbd7
+
     }
     return $this->render('security/inscription.html.twig', [
         'form' => $form->createView()
