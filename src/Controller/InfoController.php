@@ -20,7 +20,7 @@ use App\Entity\Contact;
 class InfoController extends AbstractController
 {
 
- 
+
 
     public function about(Environment $twig)
     {
@@ -29,10 +29,39 @@ class InfoController extends AbstractController
     }
 
 
-    public function contact(Environment $twig)
+    public function contact(Environment $twig, Request $request, \Swift_Mailer $mailer)
     {
-        $content = $twig->render('infos/contact.html.twig');
-        return new Response($content);
+        $contact = new Contact();
+        $form = $this->createFormBuilder($contact)
+            ->add('Name', TextType::class)
+            ->add('LastName', TextType::class)
+            ->add('mail', TextType::class)
+            ->add('Subject', TextType::class)
+            ->add('Message', TextType::class)
+            ->add('save', SubmitType::class, ['label' => 'send message'])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $message = (new \Swift_Message($contact->getSubject()))
+                ->setFrom('marketplace12344@gmail.com')
+                ->setTo('marketplace12344@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                    // templates/mail/mail_contact.html.twig
+                        'mail/mail_contact.html.twig',
+                        ['name' => $contact->getName(), 'lastname' => $contact->getLastName(), 'message' => $contact->getMessage(), 'mail' => $contact->getMail()]
+
+                    ),
+                    'text/html'
+                );
+
+
+            $mailer->send($message);
+        }
+
+        return $this->render('infos/contact.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
 
