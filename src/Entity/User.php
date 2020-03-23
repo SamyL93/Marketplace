@@ -50,6 +50,7 @@ class User implements UserInterface
 
 
 
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Achat", mappedBy="id_user_fk")
      */
@@ -126,7 +127,6 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
-
 
 
 

@@ -14,6 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Twig\Environment;
 use App\Entity\User;
 use App\Form\InscriptionType;
+use App\Controller\MailerInscriptionController;
 
 
 class SecurityController extends AbstractController
@@ -22,7 +23,9 @@ class SecurityController extends AbstractController
 
 
 
+
 public function inscription (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer) {
+
 
 
 
@@ -51,7 +54,6 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
 
         $mailer->send($message);
 
-        //$this->forward('app.mailer_inscription_controller:mail_inscription', array ($user->getMail()));
 
         return $this->redirectToRoute('connexion');
 

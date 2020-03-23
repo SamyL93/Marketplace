@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Our products
+{% endblock %}
+
+{% block body %}
+    <div class="bg-light p-3">
+        <h1>Our products</h1>
+    </div>
+
+    <div class="row">
+        {% for product in products %}
+            <div class="col-4 mt-4">
+                <div class="border border-dark rounded p-2 clearfix">
+                    <h2>
+                        {{ product.title }}
+                        -
+                        {{ product.price }}
+                        €
+                    </h2>
+                    <img class="img-fluid rounded" src="../{{ product.image }}.png" alt="Image de {{ product.title }}">
+                    <hr>
+                     <a href="{{ path('bag_add',{'id':product.id}) }}" class="btn btn-success float-right" onClick="alert('Added to the basket');">
+                        <i class="fas fa-shopping-cart mr-1"></i>
+                        Add
+                    </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

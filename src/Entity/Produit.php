@@ -19,20 +19,20 @@ class Produit
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="produits")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="nom")
+     * @ORM\Column(type="string", length=60)
      */
-    private $categorie_fk;
+    private $categorie;
+
 
     /**
      * @ORM\Column(type="string", length=60)
      */
-    private $nom;
+    private $title;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $prix;
+    private $price;
 
     /**
      * @ORM\Column(type="text")
@@ -42,7 +42,7 @@ class Produit
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $lien_image;
+    private $image;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\AchatDetaille", mappedBy="id_produit_fk")
@@ -54,38 +54,50 @@ class Produit
         $this->achatDetailles = new ArrayCollection();
     }
 
-    public function getCategorieFk(): ?Categorie
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId( $id)
+    {
+        $this->title = $id;
+
+        return $this;
+    }
+    public function getCategorieFk()
     {
         return $this->categorie_fk;
     }
 
-    public function setCategorieFk(?Categorie $categorie_fk): self
+    public function setCategorieFk( $categorie_fk)
     {
         $this->categorie_fk = $categorie_fk;
 
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getTitle(): ?string
     {
-        return $this->nom;
+        return $this->title;
     }
 
-    public function setNom(string $nom): self
+    public function setTitle(string $title): self
     {
-        $this->nom = $nom;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getPrix(): ?int
+    public function getPrice(): ?int
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix(int $prix): self
+    public function setPrice(int $price): self
     {
-        $this->prix = $prix;
+        $this->price = $price;
 
         return $this;
     }
@@ -102,14 +114,14 @@ class Produit
         return $this;
     }
 
-    public function getLienImage(): ?string
+    public function getImage(): ?string
     {
-        return $this->lien_image;
+        return $this->image;
     }
 
-    public function setLienImage(?string $lien_image): self
+    public function setImage(?string $image): self
     {
-        $this->lien_image = $lien_image;
+        $this->image = $image;
 
         return $this;
     }
