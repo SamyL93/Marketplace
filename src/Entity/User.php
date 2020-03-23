@@ -128,7 +128,7 @@ class User implements UserInterface
         // TODO: Implement eraseCredentials() method.
     }
 
-    
+
 
     /**
      * @return Collection|Achat[]
