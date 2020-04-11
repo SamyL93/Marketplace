@@ -4,7 +4,7 @@
 
 
 
-        <!-- Related Product Section Begin -->
+        <!-- Related Produit Section Begin -->
         <section class="related-product spad">
             <div class="container">
                 <div class="row">
@@ -18,7 +18,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product-item">
                             <figure>
-                                <a href="{{ path('lister')}}"> <img src="../../public/img/img_fashion.jpeg" alt=""></a>
+                                <a href="{{ path('lister',{'id' : 'fashion'})}}"> <img src="../img/img_fashion.jpeg" alt=""></a>
                             </figure>
                             <div class="product-text">
                                 <h6>Fashion</h6>
@@ -29,7 +29,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product-item">
                             <figure>
-                                <a href="{{ path('lister') }}"><img src="../../public/img/img_home.jpeg" alt=""></a>
+                                <a href="{{ path('lister',{'id' : 'home'}) }}"><img src="../img/img_home.jpeg" alt=""></a>
 
                             </figure>
                             <div class="product-text">
@@ -41,7 +41,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product-item">
                             <figure>
-                                <a href="{{ path('lister') }}"><img src="../../public/img/img_books.jpeg" alt=""></a>
+                                <a href="{{ path('lister',{'id' : 'books'}) }}"><img src="../img/img_books.jpeg" alt=""></a>
 
                             </figure>
                             <div class="product-text">
@@ -53,7 +53,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product-item">
                             <figure>
-                                <a href="{{ path('lister') }}"><img src="../../public/img/img_hightech.jpeg" alt=""></a>
+                                <a href="{{ path('lister',{'id' : 'high-tech'}) }}"><img src="../img/img_hightech.jpeg" alt=""></a>
 
                             </figure>
                             <div class="product-text">
@@ -65,5 +65,5 @@
                 </div>
             </div>
         </section>
-        <!-- Related Product Section End -->
+        <!-- Related Produit Section End -->
     {% endblock %}

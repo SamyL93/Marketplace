@@ -19,7 +19,7 @@
 3.  Header Section
 4.  Hero Section
 5.  Feature Section
-6.  Latest Product Section
+6.  Latest Produit Section
 7.  Lookbok Section
 8.  Logo Section
 9.  Footer
@@ -738,7 +738,7 @@ ol {
 }
 
 /*---------------------
-  Latest Product
+  Latest Produit
 -----------------------*/
 
 .latest-products {
@@ -1260,7 +1260,7 @@ ol {
 }
 
 /*---------------------
-  Product Page
+  Produit Page
 -----------------------*/
 
 .product-control {
@@ -1435,6 +1435,7 @@ ol {
 .related-product .section-title {
 	margin-bottom: 60px;
 }
+
 
 /*---------------------
   Cart Page
