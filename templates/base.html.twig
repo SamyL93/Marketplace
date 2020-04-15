@@ -56,22 +56,22 @@
                     </a>
                 </div>
 
-                <div class="user-access">
-                    {% if not app.user %}
-                    <a href="{{ path('inscription')}}">Register</a>
-                    <a href="{{ path('connexion')}}" class="in">Sign in</a>
-                    {% else %}
-                        <a href="{{ path('myprofil')}}">  <img src="{{ asset('img/icons/man.png') }}" alt=""></a>
 
-                        <a href="{{ path('logout')}}" class="in">Logout</a>
-                    {% endif %}
-                </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a href="{{ path('home')}}">Home</a></li>
                         <li><a href="{{ path('categorie')}}">Categories</a></li>
                         <li><a href="{{ path('about')}}">About</a></li>
                         <li><a href="{{ path('contact')}}">Contact</a></li>
+                        <li><a href="{{ path('inscriptionPro')}}">For Professionals</a></li>
+                        <li>{% if not app.user %}
+                                <a href="{{ path('inscription')}}">Register / </a>
+                                <a href="{{ path('connexion')}}" class="in">Sign in</a>
+                            {% else %}
+                                <a href="{{ path('myprofil')}}">  <img src="{{ asset('../public/img/icons/man.png') }}" alt=""></a>
+
+                                <a href="{{ path('logout')}}" class="in">Logout</a>
+                            {% endif %}</li>
                     </ul>
                 </nav>
             </div>
@@ -83,19 +83,31 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="header-item">
+<<<<<<< HEAD
                         <img src="{{ asset('../img/icons/delivery.png') }}" alt="">
+=======
+                        <img src="{{ asset('../public/img/icons/delivery.png') }}" alt="">
+>>>>>>> c4d934c6fae2d6acc739db0fabfa9a13cd05f304
                         <p>Free shipping on orders over $30 in USA</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
+<<<<<<< HEAD
                         <img src="{{ asset('../img/icons/voucher.png') }}" alt="">
+=======
+                        <img src="{{ asset('../public/img/icons/voucher.png') }}" alt="">
+>>>>>>> c4d934c6fae2d6acc739db0fabfa9a13cd05f304
                         <p>20% Student Discount</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-xl-right">
                     <div class="header-item">
+<<<<<<< HEAD
                         <img src="{{ asset('../img/icons/sales.png') }}" alt="">
+=======
+                        <img src="{{ asset('../public/img/icons/sales.png') }}" alt="">
+>>>>>>> c4d934c6fae2d6acc739db0fabfa9a13cd05f304
                         <p>30% off on dresses. Use code: 30OFF</p>
                     </div>
                 </div>
@@ -156,6 +168,7 @@
         <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
         <script src="{{ asset('js/mixitup.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
+        <script src="https://js.stripe.com/v3/"></script>
         <!-- Js Plugins End -->
 
         {% block javascripts %}{% endblock %}
