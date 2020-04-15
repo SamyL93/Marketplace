@@ -47,6 +47,9 @@ lister:
     path: /lister/{id}
     controller: App\Controller\ProductController::liste_produit
 
+paiement:
+    path: /paiement
+    controller: App\Controller\PaiementController::paiement
 
 
 
