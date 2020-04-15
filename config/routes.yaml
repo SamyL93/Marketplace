@@ -47,11 +47,11 @@ lister:
     path: /lister/{id}
     controller: App\Controller\ProductController::liste_produit
 
-<<<<<<< HEAD
+
 paiement:
     path: /paiement
     controller: App\Controller\PaiementController::paiement
-=======
+    
 inscriptionPro:
     path: /inscriptionPro
     controller: App\Controller\ProfessionnalController::inscriptionPro
@@ -60,7 +60,7 @@ connexionPro:
     path: /connexionPro
     controller: App\Controller\ProfessionnalController::connexionPro
 
->>>>>>> c4d934c6fae2d6acc739db0fabfa9a13cd05f304
+
 
 
 
