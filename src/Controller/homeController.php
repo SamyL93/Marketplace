@@ -22,7 +22,7 @@ class homeController extends AbstractController
         $form = $this->createForm(BaseType::class, $newsletter);//on appelle le formulaire
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {// && $request->request->has('')) {
             $manager->persist($newsletter);
             $manager->flush();
             $message = (new \Swift_Message('Newsletter'))
@@ -42,7 +42,7 @@ class homeController extends AbstractController
         }
 
         return $this->render('accueil.html.twig', [
-            'form' => $form->createView()
+            'form_news' => $form->createView()
         ]);
     }
 }
