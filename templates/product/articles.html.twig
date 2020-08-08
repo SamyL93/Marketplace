@@ -1,33 +1,59 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Our products
+    <div class="title">
+        Our products
+
+    </div>
 {% endblock %}
 
+{% block stylesheets %}
+    <style>
+        h2{
+            text-align: center;
+            font-style:italic ;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+        .section-title {
+            padding: 50px;
+        }
+        .filter {
+            display: block;
+            position: sticky;
+            top: 20px;
+        }
+    </style>
+
+{% endblock %}
 {% block body %}
-    <div class="bg-light p-3">
-        <h1>Our products</h1>
+
+    <div class="section-title">
+        <h2>{{cat}}</h2>
     </div>
 
-    <div class="row">
-        {% for product in products %}
-            <div class="col-4 mt-4">
-                <div class="border border-dark rounded p-2 clearfix">
-                    <h2>
-                        {{ product.title }}
-                        -
-                        {{ product.price }}
-                        €
-                    </h2>
-                    <img class="img-fluid rounded" src="../{{ product.image }}.png" alt="Image de {{ product.title }}">
-                    <hr>
-                     <a href="{{ path('bag_add',{'id':product.id}) }}" class="btn btn-success float-right" onClick="alert('Added to the basket');">
-                        <i class="fas fa-shopping-cart mr-1"></i>
-                        Add
-                    </a>
-                </div>
+    <div class=container">
 
+        <div class="row">
+            <div class="col-md-3">
+    {% include 'product/filter.html.twig' with {form: form} only%}
             </div>
-        {% endfor %}
+
+            <div class="col-md-9">
+                <div class="grid">
+                    {% for product in products %}
+                        {% include 'product/_card.html.twig' with {product: product} only %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
     </div>
+
 {% endblock %}
+
+
