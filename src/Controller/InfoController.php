@@ -5,6 +5,8 @@ namespace App\Controller;
 
 
 
+use App\Form\ContactType;
+use App\Form\InscriptionType;
 use Symfony\Component\Form\FormTypeInterface;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,14 +34,8 @@ class InfoController extends AbstractController
     public function contact(Environment $twig, Request $request, \Swift_Mailer $mailer)
     {
         $contact = new Contact();
-        $form = $this->createFormBuilder($contact)
-            ->add('Name', TextType::class)
-            ->add('LastName', TextType::class)
-            ->add('mail', TextType::class)
-            ->add('Subject', TextType::class)
-            ->add('Message', TextType::class)
-            ->add('save', SubmitType::class, ['label' => 'send message'])
-            ->getForm();
+        $form = $this->createForm(ContactType::class);//on appelle le formulaire de contact
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $message = (new \Swift_Message($contact->getSubject()))
@@ -56,7 +52,7 @@ class InfoController extends AbstractController
                 );
 
 
-            $mailer->send($message);
+            $mailer->send($message);//on envoit le mail
         }
 
         return $this->render('infos/contact.html.twig', [
