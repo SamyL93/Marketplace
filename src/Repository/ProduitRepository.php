@@ -19,6 +19,11 @@ class ProduitRepository extends ServiceEntityRepository
         parent::__construct($registry, Produit::class);
     }
 
+    public function findBySearch()
+    {
+        return $this->findAll();
+    }
+
     // /**
     //  * @return Produit[] Returns an array of Produit objects
     //  */

@@ -1,0 +1,20 @@
+{{ form_start(form, {attr: {class: 'filter'}}) }}
+<h4>Find a product</h4>
+<br>
+{{ form_row (form.q)}}
+<br>
+<h4>Price</h4>
+<br>
+<div class="row">
+    <div class="col-md-6">
+      {{ form_row(form.min) }}
+    </div>
+
+    <div class="col-md-6">
+        {{ form_row(form.max) }}
+    </div>
+</div>
+<br>
+<button type="submit" class="btn btn-primary w-100">Filter</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-img">
+    <img src="../{{ product.image }}" alt=""  height="250px" width="250px">
+  </div>
+    <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+
+        <h5 class="card-title text-primary" style="font-weight: bold; font-size: 1.5rem;">
+          {{ product.price | number_format(0,',', ' ') }} €
+        </h5>
+
+    </div>
+
+    <p class="text text-muted">{{ product.description }}</p>
+<div class="card-footer">
+    <!-- Ajouter ici quantité d'article restants   -->
+    <a href="{{ path('bag_add',{'id':product.id}) }}" class="btn btn-success float-right" onClick="alert('Added to the basket');">
+        <i class="fas fa-shopping-cart mr-1"></i>
+        Add
+    </a>
+</div>
+
+</div>
