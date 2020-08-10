@@ -26,10 +26,13 @@ class ProductController extends AbstractController
 
     public function liste_produit(Environment $twig,ProduitRepository $produitRepository, $id, Request $request)
     {
-$data = new SortData();
-$form = $this->createForm(SearchForm::class, $data);
-$form->handleRequest($request);
-        $produits = $this->maCategorie($produitRepository, $id);
+        $data = new SortData();
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+
+        // $produits = $this->maCategorie($produitRepository, $id);
+        $produits = $produitRepository->findBySearch( $id, $data);
+
         return $this->render('product/articles.html.twig', [
             'products' => $produits, 'cat' => $id,
             'form' => $form->createView()
@@ -37,31 +40,4 @@ $form->handleRequest($request);
     }
 
 
-    public function maCategorie($produitRepository,$id)
-    {
-        switch ($id) {
-            case 'fashion':
-                {
-                    return  $produitRepository->findBy((array('categorie' => 'Fashion')));
-                }
-                break;
-
-            case 'home':
-                {
-                    return  $produitRepository->findBy((array('categorie' => 'Home')));
-                }
-                break;
-
-            case 'books':
-                {
-                    return  $produitRepository->findBy((array('categorie' => 'Books')));
-                }
-                break;
-
-            case 'high-tech':
-            {
-                return  $produitRepository->findBy((array('categorie' => 'High-tech')));
-            }
-        }
-    }
 }
