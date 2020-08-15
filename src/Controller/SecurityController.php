@@ -72,4 +72,8 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
     {
 
     }
+    public function choixCompte ()
+    {
+        return $this->render('security/choixCompte.html.twig');
+    }
 }

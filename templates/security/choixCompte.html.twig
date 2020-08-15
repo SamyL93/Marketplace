@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<section class="related-product spad">
+    <div class="container"  >
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-sm-6">
+                 <div class="single-product-item">
+                    <figure>
+                        <a href="{{ path('inscription') }}"><img src="../img/family_compte.png" id="Particular" alt="Particular"></a>
+                            <style>
+                                #home:hover {
+                                opacity: 0.4;
+                                        }
+                             </style>
+                    </figure>
+            <div class="product-text">
+                 <h6>Particular</h6>
+
+            </div>
+             </div>
+        </div>
+
+<div class="col-lg-3 col-sm-6">
+    <div class="single-product-item">
+        <figure>
+            <a href="{{ path('inscriptionPro',{'id' : 'Pro'}) }}"><img src="../img/group_compte.png" id="Pro" alt="Pro"></a>
+            <style>
+                #home:hover {
+                    opacity: 0.4;
+                }
+            </style>
+        </figure>
+        <div class="product-text">
+            <h6>Pro</h6>
+
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}

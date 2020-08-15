@@ -4,20 +4,23 @@
 namespace App\Controller;
 
 
-use App\Entity\User;
-use App\Form\InscriptionType;
+use App\Entity\Revendeur;
+use App\Form\InscriptionProType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Controller\MailerInscriptionController;
+use Symfony\Component\Security\Core\Encoder\ProPasswordEncoder;
+use Doctrine\ORM\EntityManager;
 
 class ProfessionnalController extends AbstractController
 {
     public function inscriptionPro (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        $user = new User();
+        $user = new Revendeur();
 
-        $form = $this->createForm(InscriptionType::class, $user);
+        $form = $this->createForm(InscriptionProType::class, $user);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){

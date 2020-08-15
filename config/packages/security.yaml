@@ -3,6 +3,9 @@ security:
         App\Entity\User:
             algorithm: bcrypt
 
+        App\Entity\Revendeur:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }

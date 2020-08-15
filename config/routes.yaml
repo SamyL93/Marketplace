@@ -60,7 +60,9 @@ connexionPro:
     path: /connexionPro
     controller: App\Controller\ProfessionnalController::connexionPro
 
-
+choixCompte:
+    path: /choixCompte
+    controller: App\Controller\SecurityController::choixCompte
 
 
 
