@@ -1,4 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        .val {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+{% endblock %}
 {% block body %}
     {% if items | length > 0 %}
         <table class="table">
@@ -39,7 +47,7 @@
         <p>Your cart is empty</p>
     {% endif %}
 
-    <div>
+    <div class="val">
         <a href="{{ path('paiement') }}" class="btn btn-success">Validate</a>
     </div>
 {% endblock  %}
