@@ -43,6 +43,11 @@ class Revendeur implements UserInterface
      */
     private $confirm_password;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $roles;
+
 
 
     public function getId(): ?int
@@ -74,7 +79,7 @@ class Revendeur implements UserInterface
         return $this;
     }
 
-    public function getPassword(): ?int
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -103,7 +108,7 @@ class Revendeur implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_ADMIN'];
     }
 
     /**
@@ -128,5 +133,12 @@ class Revendeur implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function setRoles(?string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 }

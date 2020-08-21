@@ -66,7 +66,7 @@
             <div class="user-access">
                 {% if not app.user %}
                     <a href="{{ path('choixCompte')}}">Register</a>
-                    <a href="{{ path('connexion')}}" class="in">Sign in</a>
+                    <a href="{{ path('choixLogin')}}" class="in">Sign in</a>
                 {% else %}
                     <a href="{{ path('myprofil')}}">  <img src="{{ asset('img/icons/man.png') }}" alt=""></a>
 

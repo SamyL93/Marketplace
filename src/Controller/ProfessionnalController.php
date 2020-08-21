@@ -9,10 +9,12 @@ use App\Form\InscriptionProType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Controller\MailerInscriptionController;
 use Symfony\Component\Security\Core\Encoder\ProPasswordEncoder;
 use Doctrine\ORM\EntityManager;
+use Twig\Environment;
 
 class ProfessionnalController extends AbstractController
 {
@@ -35,6 +37,13 @@ class ProfessionnalController extends AbstractController
         ]);
     }
 
+    public function profilPro ($twig)
+    {
+        $content = $twig->render('commande/profilPro.html.twig');
+        return new Response($content);
+
+    }
+
     public function connexionPro ()
     {
         return $this->render('security/connexionPro.html.twig');
@@ -43,5 +52,15 @@ class ProfessionnalController extends AbstractController
     public function logout ()
     {
 
+    }
+
+    public function stats ()
+    {
+        return $this->render('product/pro/stats.html.twig');
+    }
+
+    public function addProduct ()
+    {
+        return $this->render('product/pro/addProduct.html.twig');
     }
 }
