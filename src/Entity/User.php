@@ -56,6 +56,11 @@ class User implements UserInterface
      */
     private $achats;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $roles;
+
     public function __construct()
     {
         $this->achats = new ArrayCollection();
@@ -157,6 +162,13 @@ class User implements UserInterface
                 $achat->setIdUserFk(null);
             }
         }
+
+        return $this;
+    }
+
+    public function setRoles(?string $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }

@@ -64,5 +64,21 @@ choixCompte:
     path: /choixCompte
     controller: App\Controller\SecurityController::choixCompte
 
+choixLogin:
+    path: /choixLogin
+    controller: App\Controller\SecurityController::choixLogin
+
+profilPro:
+    path: /profilPro
+    controller: App\Controller\ProfessionnalController::profilPro
+
+stats:
+    path: /stats
+    controller: App\Controller\ProfessionnalController::stats
+
+addProduct:
+    path: /addProduct
+    controller: App\Controller\ProfessionnalController::addProduct
+
 
 

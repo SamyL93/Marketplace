@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Revendeur;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,9 +64,16 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
     ]);
 }
 
-    public function connexion ()
+    public function connexion (Request $request)
     {
-        return $this->render('security/connexion.html.twig');
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+        {
+            return $this->render('commande/profilPro.html.twig');
+        }
+        else
+        {
+            return $this->render('security/connexion.html.twig');
+        }
     }
 
     public function logout ()
@@ -75,5 +83,10 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
     public function choixCompte ()
     {
         return $this->render('security/choixCompte.html.twig');
+    }
+
+    public function choixLogin ()
+    {
+        return $this->render( 'security/choixLogin.html.twig');
     }
 }
