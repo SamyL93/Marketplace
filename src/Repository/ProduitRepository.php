@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SortData;
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -19,9 +20,31 @@ class ProduitRepository extends ServiceEntityRepository
         parent::__construct($registry, Produit::class);
     }
 
-    public function findBySearch()
-    {
-        return $this->findAll();
+    public function findBySearch(String $id,SortData $search)
+    {   $query = $this
+        ->createQueryBuilder('produit')
+        ->where('produit.categorie = :categorie')
+        ->setParameter('categorie', $id);
+
+    if (!empty($search->q)) {
+        $query = $query
+            ->andWhere('produit.title LIKE :q')
+            ->setParameter('q', "%{$search->q}%");
+    }
+
+        if (!empty($search->min)) {
+            $query = $query
+                ->andWhere('produit.price >= :min')
+                ->setParameter('min', "$search->min");
+        }
+        if (!empty($search->max)) {
+            $query = $query
+                ->andWhere('produit.price >= :max')
+                ->setParameter('max ', "$search->max");
+        }
+        return $query->getQuery()->getResult();
+      //  return  $this->findBy((array('categorie' => $id)));
+
     }
 
     // /**

@@ -4,20 +4,25 @@
 namespace App\Controller;
 
 
-use App\Entity\User;
-use App\Form\InscriptionType;
+use App\Entity\Revendeur;
+use App\Form\InscriptionProType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Controller\MailerInscriptionController;
+use Symfony\Component\Security\Core\Encoder\ProPasswordEncoder;
+use Doctrine\ORM\EntityManager;
+use Twig\Environment;
 
 class ProfessionnalController extends AbstractController
 {
     public function inscriptionPro (Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        $user = new User();
+        $user = new Revendeur();
 
-        $form = $this->createForm(InscriptionType::class, $user);
+        $form = $this->createForm(InscriptionProType::class, $user);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -32,6 +37,13 @@ class ProfessionnalController extends AbstractController
         ]);
     }
 
+    public function profilPro ($twig)
+    {
+        $content = $twig->render('commande/profilPro.html.twig');
+        return new Response($content);
+
+    }
+
     public function connexionPro ()
     {
         return $this->render('security/connexionPro.html.twig');
@@ -40,5 +52,15 @@ class ProfessionnalController extends AbstractController
     public function logout ()
     {
 
+    }
+
+    public function stats ()
+    {
+        return $this->render('product/pro/stats.html.twig');
+    }
+
+    public function addProduct ()
+    {
+        return $this->render('product/pro/addProduct.html.twig');
     }
 }

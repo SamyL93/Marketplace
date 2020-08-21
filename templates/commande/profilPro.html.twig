@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="page-add">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="user-access-access">
+
+                <h2> {{ 'Company : ' ~ app.user.entreprise}}</h2>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="related-product spad">
+        <div class="container"  >
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="{{ path('stats') }}"><img src="../img/statistics.png" id="Particular" alt="Particular"></a>
+                            <style>
+                                #home:hover {
+                                    opacity: 0.4;
+                                }
+                            </style>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Stats</h6>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="{{ path('addProduct') }}"><img src="../img/book.png" id="Pro" alt="Pro"></a>
+                            <style>
+                                #home:hover {
+                                    opacity: 0.4;
+                                }
+                            </style>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Add Product</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

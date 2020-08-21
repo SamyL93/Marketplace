@@ -4,7 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-
+    stripe_public_key: pk_test_51HHql6BIzLcygYF0PtrEMfBLD2OxSExr1JIjNmNuawuKKYgLlmpM7FANxAfJcvimxqMmgQY3SH3XaRbLkiDWgrW8007gH6diVN
+    stripe_secret_key: sk_test_51HHql6BIzLcygYF0rwkjQUARjY0uLu5J6yxCFErLSXEtYbO56nOzedf0NKWjA4mACmmCz7M1KwQihN7gdrX1a8pN00p1r2bCG3
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -14,15 +15,18 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
-        resource: '../src/Controller'
+        resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
