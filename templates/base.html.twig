@@ -52,10 +52,43 @@
 <header class="header-section">
     <div class="container-fluid">
         <div class="inner-header">
-            <div class="logo">
-                <a href="{{ path('home')}}"><img src="{{ asset('img/Logo.png') }}" alt=""></a>
-            </div>
-            <div class="header-right">
+
+            <div class="row">
+
+                <div class="col-lg-7">
+                    <div class="logo">
+                        <a href="{{ path('home')}}"><img src="{{ asset('img/Logo.png') }}" alt=""></a>
+                    </div>
+                    <nav class="main-menu mobile-menu">
+                        <ul>
+                            <li><a href="{{ path('home')}}">Home</a></li>
+                            <li><a href="{{ path('categorie')}}">Categories</a></li>
+                            <li><a href="{{ path('about')}}">About</a></li>
+                            <li><a href="{{ path('contact')}}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="user-access">
+                        {% if not app.user %}
+                            <a href="{{ path('choixCompte')}}">Register</a>
+                            <a href="{{ path('choixLogin')}}" class="in">Sign in</a>
+                        {% else %}
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <b> PRO ACCOUNT</b>
+                                <a href="{{ path('connexion')}}">  <img src="{{ asset('img/icons/man.png') }}" alt=""></a>
+                            {% elseif is_granted('ROLE_USER') %}
+                                <b>CLIENT ACCOUNT </b>
+                                <a href="{{ path('myprofil')}}">  <img src="{{ asset('img/icons/man.png') }}" alt=""></a>
+
+                            {% endif %}
+                            <a href="{{ path('logout')}}" class="in">Logout</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-2">
                 {% if app.user %}
                     {{ 'Bonjour ' ~ app.user.username }}
                 {% endif %}
@@ -63,24 +96,8 @@
                 </a>
             </div>
 
-            <div class="user-access">
-                {% if not app.user %}
-                    <a href="{{ path('choixCompte')}}">Register</a>
-                    <a href="{{ path('choixLogin')}}" class="in">Sign in</a>
-                {% else %}
-                    <a href="{{ path('myprofil')}}">  <img src="{{ asset('img/icons/man.png') }}" alt=""></a>
 
-                    <a href="{{ path('logout')}}" class="in">Logout</a>
-                {% endif %}
-            </div>
-            <nav class="main-menu mobile-menu">
-                <ul>
-                    <li><a href="{{ path('home')}}">Home</a></li>
-                    <li><a href="{{ path('categorie')}}">Categories</a></li>
-                    <li><a href="{{ path('about')}}">About</a></li>
-                    <li><a href="{{ path('contact')}}">Contact</a></li>
-                </ul>
-            </nav>
+
         </div>
     </div>
 </header>

@@ -24,6 +24,8 @@ class Achat
      */
     private $id_user_fk;
 
+
+
     /**
      * @ORM\Column(type="date")
      */

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+ {%  block body %}
+
+     <section class="page-add">
+         <div class="container">
+             <div class="row">
+                 <div class="page-breadcrumb">
+                     <h2>Add a product</h2>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+
+     <div class="contact-section">
+         <div class="container">
+
+             <div class="row">
+                 <div class="col-lg-12">
+                     {{ form_start(form) }}
+                     {{ form_end(form) }}
+                 </div>
+             </div>
+         </div>
+     </div>
+ {% endblock %}

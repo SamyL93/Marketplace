@@ -5,6 +5,8 @@ namespace App\Form;
 
 
 
+use App\Entity\Revendeur;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -55,6 +57,16 @@ public function buildForm(FormBuilderInterface $builder, array $options)
                'placeholder' => 'Maximum Price'
            ]
        ])
+       ->add('revendeurs', EntityType::class,[
+           'label'=>false,
+               'required'=>false,
+               'class'=>Revendeur::class,
+               'expanded'=>true,
+               'multiple'=>true
+           ]
+
+
+           )
    ;
 }
 }

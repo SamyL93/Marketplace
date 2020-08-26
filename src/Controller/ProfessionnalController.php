@@ -4,8 +4,10 @@
 namespace App\Controller;
 
 
+use App\Entity\Produit;
 use App\Entity\Revendeur;
 use App\Form\InscriptionProType;
+use App\Form\ProductType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,8 +61,26 @@ class ProfessionnalController extends AbstractController
         return $this->render('product/pro/stats.html.twig');
     }
 
-    public function addProduct ()
+    public function addProduct (Environment $twig, EntityManagerInterface $manager, Request $request)
     {
-        return $this->render('product/pro/addProduct.html.twig');
+        $product = new Produit();
+        //$UserId=$this->getUser()->getId();
+       // $product->setRevendeur(4);
+        $revendeur = $manager->getRepository(Revendeur::class)->find($this->getUser()->getId());
+$product->setRevendeur($revendeur);
+        //dd($product->getRevendeur());
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $manager->persist($product);
+            $manager->flush();
+            return $this->redirectToRoute('connexion');
+
+        }
+        return $this->render('product/pro/addProduct.html.twig',[
+            'form' => $form->createView()
+        ]);
+
     }
 }

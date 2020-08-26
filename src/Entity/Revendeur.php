@@ -22,7 +22,7 @@ class Revendeur implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
      */
     private $entreprise;
 
@@ -48,14 +48,40 @@ class Revendeur implements UserInterface
      */
     private $roles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="revendeur")
+     */
+    private $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
 
-    public function getId(): ?int
+
+    /**
+     * @return mixed
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+
+    /**
+     * @param mixed $produits
+     */
+    public function setProduits($produits)
+    {
+        $this->produits = $produits;
+    }
+
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getEntreprise(): ?string
+    public function getEntreprise()
     {
         return $this->entreprise;
     }
@@ -140,5 +166,32 @@ class Revendeur implements UserInterface
         $this->roles = $roles;
 
         return $this;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits[] = $produit;
+            $produit->setRevendeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produits->contains($produit)) {
+            $this->produits->removeElement($produit);
+            // set the owning side to null (unless already changed)
+            if ($produit->getRevendeur() === $this) {
+                $produit->setRevendeur(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+       return $this->entreprise;
     }
 }

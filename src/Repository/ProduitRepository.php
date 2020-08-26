@@ -24,7 +24,9 @@ class ProduitRepository extends ServiceEntityRepository
     {   $query = $this
         ->createQueryBuilder('produit')
         ->where('produit.categorie = :categorie')
-        ->setParameter('categorie', $id);
+        ->setParameter('categorie', $id)
+    ;
+
 
     if (!empty($search->q)) {
         $query = $query
@@ -39,8 +41,14 @@ class ProduitRepository extends ServiceEntityRepository
         }
         if (!empty($search->max)) {
             $query = $query
-                ->andWhere('produit.price >= :max')
-                ->setParameter('max ', "$search->max");
+                ->andWhere('produit.price <= :max')
+                ->setParameter('max', "$search->max");
+        }
+
+        if (!empty($search->revendeurs)) {
+            $query = $query
+                ->andWhere('  produit.revendeur IN (:revendeurs)')
+                ->setParameter('revendeurs', "$search->revendeurs");
         }
         return $query->getQuery()->getResult();
       //  return  $this->findBy((array('categorie' => $id)));

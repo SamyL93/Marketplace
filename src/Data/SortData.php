@@ -4,6 +4,8 @@
 namespace App\Data;
 
 
+use App\Entity\Revendeur;
+
 class SortData
 {
 
@@ -15,7 +17,7 @@ class SortData
     public $q = '';
 
     /**
-     * @var nullinteger
+     * @var integer
      */
     public $max;
 
@@ -23,6 +25,11 @@ class SortData
      * @var nullinteger
      */
     public $min;
+
+    /**
+     * @var Revendeur[]
+     */
+    public $revendeurs = [];
 
 
 }

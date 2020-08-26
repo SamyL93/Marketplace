@@ -30,7 +30,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    public $username;
 
     /**
      * @ORM\Column(type="string", length=64)
@@ -56,6 +56,8 @@ class User implements UserInterface
      */
     private $achats;
 
+
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -66,22 +68,22 @@ class User implements UserInterface
         $this->achats = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    public function getUsername()
     {
         return $this->username;
     }
 
-    public function getPassword(): ?string
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function getMail(): ?string
+    public function getMail()
     {
         return $this->mail;
     }

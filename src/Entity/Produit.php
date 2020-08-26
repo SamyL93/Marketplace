@@ -19,9 +19,25 @@ class Produit
     private $id;
 
     /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @ORM\Column(type="string", length=60)
      */
-    private $categorie;
+    public $categorie;
 
 
     /**
@@ -49,34 +65,40 @@ class Produit
      */
     private $achatDetailles;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=revendeur::class, inversedBy="produits")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $revendeur;
+
+    /**
+     * @return mixed
+     */
+    public function getRevendeur()
+    {
+        return $this->revendeur;
+    }
+
+    /**
+     * @param mixed $revendeur
+     */
+    public function setRevendeur($revendeur)
+    {
+        $this->revendeur = $revendeur;
+    }
+
+
+
+
+
     public function __construct()
     {
         $this->achatDetailles = new ArrayCollection();
     }
 
 
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    public function setId( $id)
-    {
-        $this->title = $id;
 
-        return $this;
-    }
-    public function getCategorieFk()
-    {
-        return $this->categorie_fk;
-    }
-
-    public function setCategorieFk( $categorie_fk)
-    {
-        $this->categorie_fk = $categorie_fk;
-
-        return $this;
-    }
 
     public function getTitle(): ?string
     {
@@ -158,4 +180,10 @@ class Produit
     }
 
 
+
+
 }
+
+
+
+
