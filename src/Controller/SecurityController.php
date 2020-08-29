@@ -68,7 +68,7 @@ public function inscription (Request $request, EntityManagerInterface $manager, 
     {
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
         {
-            return $this->render('commande/profilPro.html.twig');
+            return $this->render('pro/profilPro.html.twig');
         }
         else
         {

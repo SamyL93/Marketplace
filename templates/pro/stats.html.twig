@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        h3{
+            text-align: center;
+            font-style:italic ;
+            padding: 60px;
+        }
+    </style>
+
+{% endblock %}
+ {%  block body %}
+
+     <section class="page-add">
+         <div class="container">
+             <div class="row">
+                 <div class="page-breadcrumb">
+                     <h2>Stats</h2>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <h3>Sales figures : </h3>
+
+<h3>Product on sale : </h3>
+     <div class="contact-section">
+         <div class="container">
+
+             <div class="row">
+
+                                 <div class="col-md-9">
+                                     <div class="grid">
+                                         {% for product in products %}
+                                             {% include 'product/proCard.html.twig' with {product: product} only %}
+                                         {% endfor %}
+                                     </div>
+                                 </div>
+              </div>
+             </div>
+         </div>
+     </div>
+ {% endblock %}

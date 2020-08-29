@@ -55,7 +55,16 @@ class ProduitRepository extends ServiceEntityRepository
 
     }
 
-    // /**
+    public function findbyRevendeur($id_revendeur)
+    {
+
+        $query = $this
+            ->createQueryBuilder('produit')
+            ->where('produit.revendeur = :revendeur')
+             ->setParameter('revendeur', $id_revendeur);
+        return $query->getQuery()->getResult();
+    }
+        // /**
     //  * @return Produit[] Returns an array of Produit objects
     //  */
     /*

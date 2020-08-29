@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-img">
+        <img src="../{{ product.image }}" alt=""  height="250px" width="250px">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+
+        <h5 class="card-title text-primary" style="font-weight: bold; font-size: 1.5rem;">
+            {{ product.price | number_format(0,',', ' ') }} €
+        </h5>
+
+    </div>
+    <p class="text text-muted">{{ product.description }}</p>
+    <div class="card-footer">
+        <!-- Ajouter ici quantité d'article restants   -->
+
+        <a  href="{{ path('modifProduct',{'id':product.id}) }}" class="btn btn-success float-right">
+            <i class="fas fa-shopping-cart mr-1"></i>
+            Modify
+        </a>
+        <a style="padding-right: 20px" href="{{ path('deleteProduct',{'id':product.id}) }}" class="btn btn-success float-right" onClick="alert('Deleted');">
+            <i class="fas fa-shopping-cart mr-1"></i>
+            Delete
+        </a>
+    </div>
+
+</div>
