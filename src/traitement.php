@@ -12,7 +12,7 @@ $token = $_POST['stripeToken'];
 $charge = \Stripe\Charge::create([
     'amount' => 100, //1EURO
     'currency' => 'eur',
-    'description' => 'Test charge',
+    'description' => 'Pay',
     'source' => $token,
 ]);
 var_dump($charge);

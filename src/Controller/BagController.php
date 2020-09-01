@@ -57,4 +57,5 @@ class BagController extends AbstractController
         $session->set('panier',$panier);
         return $this->redirectToRoute("bag");
     }
+
 }

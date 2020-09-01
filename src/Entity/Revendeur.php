@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -24,7 +25,7 @@ class Revendeur implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $entreprise;
+    private String $entreprise;
 
     /**
      * @ORM\Column(type="string")
@@ -190,6 +191,10 @@ class Revendeur implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return String
+     */
     public function __toString()
     {
        return $this->entreprise;

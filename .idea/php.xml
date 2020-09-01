@@ -117,4 +117,5 @@
       <path value="$PROJECT_DIR$/vendor/symfony/twig-pack" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
 </project>

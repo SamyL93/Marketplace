@@ -33,15 +33,15 @@ categorie:
 
 bag:
     path: /bag
-    controller: App\Controller\BagController::bag
+    controller: App\Controller\PaiementController::bag
 
 bag_add:
     path: /bag/{id}
-    controller: App\Controller\BagController::add
+    controller: App\Controller\PaiementController::add
 
 bag_remove:
     path: /bag/remove/{id}
-    controller: App\Controller\BagController::remove
+    controller: App\Controller\PaiementController::remove
 
 lister:
     path: /lister/{id}
